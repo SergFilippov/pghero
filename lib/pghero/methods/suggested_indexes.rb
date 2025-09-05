@@ -101,8 +101,12 @@ module PgHero
           parts[statement] = best_index_structure(statement)
         end
 
+        puts("best_index_helper")
+
         # get stats about columns for relevant tables
         tables = parts.values.map { |t| t[:table] }.uniq
+        puts("best_index_helper")
+        puts(tables)
         # TODO get schema from query structure, then try search path
         schema = PgHero.connection_config(connection_model)[:schema] || "public"
         if tables.any?
