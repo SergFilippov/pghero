@@ -231,7 +231,7 @@ module PgHero
                 pg_roles ON pg_roles.oid = pg_stat_statements.userid
               WHERE
                 calls > 0 AND
-                pg_database.datname = "zmeta"
+                pg_database.datname = 'zmeta'
                 #{query_hash ? "AND queryid = #{quote(query_hash)}" : nil}
                 #{user ? "AND rolname = #{quote(user)}" : nil}
             )
