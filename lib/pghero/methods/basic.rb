@@ -15,7 +15,7 @@ module PgHero
       end
 
       def database_name
-        select_one("SELECT current_database()")
+        select_one("SELECT 'zmeta'")
       end
 
       def current_user

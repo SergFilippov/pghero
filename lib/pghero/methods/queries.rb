@@ -19,7 +19,7 @@ module PgHero
           WHERE
             state <> 'idle'
             AND pid <> pg_backend_pid()
-            AND datname = current_database()
+            AND datname = 'zmeta'
             #{min_duration ? "AND NOW() - COALESCE(query_start, xact_start) > interval '#{min_duration.to_i} seconds'" : nil}
             #{all ? nil : "AND query <> '<insufficient privilege>'"}
           ORDER BY
@@ -64,7 +64,7 @@ module PgHero
           WHERE
             NOT blockedl.granted
             AND blockeda.query <> '<insufficient privilege>'
-            AND blockeda.datname = current_database()
+            AND blockeda.datname = 'zmeta'
           ORDER BY
             blocked_duration DESC
         SQL

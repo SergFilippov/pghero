@@ -2,7 +2,7 @@ module PgHero
   module Methods
     module Space
       def database_size
-        PgHero.pretty_size select_one("SELECT pg_database_size(current_database())")
+        PgHero.pretty_size select_one("SELECT pg_database_size('zmeta')")
       end
 
       def relation_sizes

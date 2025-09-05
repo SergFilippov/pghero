@@ -110,7 +110,7 @@ module PgHero
           FROM
             pg_database
           WHERE
-            datname = current_database()
+            datname = 'zmeta'
         SQL
       end
 

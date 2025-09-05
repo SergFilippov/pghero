@@ -19,7 +19,7 @@ module PgHero
           WHERE
             pid <> pg_backend_pid()
             AND query <> '<insufficient privilege>'
-            AND datname = current_database()
+            AND datname = 'zmeta'
         SQL
         true
       end
